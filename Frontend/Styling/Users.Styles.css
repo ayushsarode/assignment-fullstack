@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.main {
+  margin: 0;
+  background: #000;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  width: min(900px, 100% - 3rem);
+  margin-inline: auto;
+  padding-top: 2rem;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  width: 100%;
+  border: 2px solid whi;
+  margin-top: 20px;
+}
+
+.wrapper span {
+  color: #007bff;
+  font-weight: 700;
+}
+
+.wrapper span:hover {
+  color: white;
+  transition: 0.2s;
+}
+
+table {
+  background: #323232;
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+  margin-top: 5rem;
+  /* border: 1px solid white; */
+  border-radius: 8px;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th,
+td {
+  padding: 1rem 3rem 1rem 3rem;
+  /* border: 1px solid white; */
+  /* border-bottom: 2px solid whi; */
+  text-align: center;
+}
+
+tr {
+  text-align: center;
+}
+
+th {
+  background: hsl(0 0% 0% / 0.5);
+}
+
+tr:nth-of-type(2n) {
+  background: hsl(0 0% 0% / 0.1);
+}
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.edit-btn {
+  border: none;
+  padding: 8px 24px;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background: #0776edc9;
+  transition: 0.2s;
+}
+
+.dlte-btn {
+  color: white;
+  background: red;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+.dlte-btn:hover {
+  background: rgba(228, 7, 7, 0.856);
+  transition: 0.2s;
+}
+
+.Add-btn {
+  text-decoration: none;
+  font-style: none;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  color: white;
+  background: hsl(134, 61%, 41%);
+  padding: 8px 12px;
+  position: relative;
+  top: 3rem;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.Add-btn:hover {
+  background: #289742;
+
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 850px) {
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .wrapper {
+    max-width: 500px;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  .edit-btn {
+    padding: 5px 10px;
+  }
+
+  .dlte-btn {
+  }
+}

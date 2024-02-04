@@ -1,0 +1,57 @@
+.body {
+  height: 100vh;
+  background: #000;
+}
+
+.form-section {
+  position: absolute;
+  /* width: 100%; */
+
+  /* text-align: center; */
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+form {
+  min-width: 500px;
+  color: black;
+  border: 2px solid white;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+}
+
+label {
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+input {
+  padding: 10px 24px;
+  background: #000;
+  color: #28a745;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 7px 20px;
+  background: #28a745;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.submit-btn:hover {
+  background: #289742;
+  transition: 0.3s;
+}

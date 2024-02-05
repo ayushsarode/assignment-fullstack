@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -19,7 +19,7 @@ const UpdateUsers: React.FC = () => {
     axios
       .put(`http://localhost:3000/user/${parseInt(id)}`, data)
       .then((res) => {
-        toast("User Updated Successfully", {
+        toast.success("User Updated Successfully", {
           position: "top-right",
           className: "toast-message",
         });

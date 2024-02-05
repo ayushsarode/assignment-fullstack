@@ -68,7 +68,7 @@ const Users: React.FC = () => {
     if (Conf) {
       axios
         .delete(`http://localhost:3000/user/${id}`)
-        .then((res) => {
+        .then(() => {
           toast.error("User has been Deleted", { position: "top-right" });
           navigate("/");
         })

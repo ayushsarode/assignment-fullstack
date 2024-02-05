@@ -2,7 +2,6 @@ import axios from "axios";
 import "../Styling/Users.Styles.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import GirlSvg from "../assets/girl.png";
 import toast from "react-hot-toast";
 
 const Users: React.FC = () => {
@@ -15,6 +14,7 @@ const Users: React.FC = () => {
       .then((result) => setUsers(result.data))
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <div className="main">
       <div className="wrapper">
@@ -43,7 +43,7 @@ const Users: React.FC = () => {
                       Update
                     </Link>
                     <button
-                      onClick={(e) => handleSubmit(users.id)}
+                      onClick={(e) => handleDelete(users.id)}
                       className="dlte-btn"
                     >
                       Delete
@@ -57,8 +57,9 @@ const Users: React.FC = () => {
       </div>
     </div>
   );
-  function handleSubmit(id) {
-    const Conf = window.confirm("Do you want to delete the User");
+
+  function handleDelete(id) {
+    const Conf = window.confirm("Do you want to delete");
     if (Conf) {
       axios
         .delete("http://localhost:3000/user/" + id)

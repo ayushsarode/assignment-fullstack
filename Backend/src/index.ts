@@ -15,7 +15,7 @@ app.get("/users", (req, res) => {
   res.json(USERS.users);
 });
 
-app.get
+app.get;
 
 app.get("/user/:id", (req, res) => {
   const userId = parseInt(req.params.id, 10);
@@ -44,30 +44,6 @@ app.post("/user", (req, res) => {
   }
 });
 
-app.delete("/user/:id", (req, res) => {
-  try {
-    // Extract the user ID from the request parameters
-    const userId = parseInt(req.params.id);
-
-    // Find the index of the user with the specified ID
-    const userIndex = USERS.users.findIndex((user) => user.id === userId);
-
-    // Check if the user with the specified ID exists
-    if (userIndex === -1) {
-      return res.status(404).send("User not found");
-    }
-
-    // Remove the user from the array
-    USERS.users.splice(userIndex, 1);
-
-    // Respond with the updated list of users
-    res.status(200).json(USERS);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
 app.put("/user/:id", (req, res) => {
   try {
     // Extract the user ID from the request parameters
@@ -86,6 +62,30 @@ app.put("/user/:id", (req, res) => {
 
     // Update the user with the new data
     USERS.users[userIndex] = { ...USERS.users[userIndex], ...updatedUserData };
+
+    // Respond with the updated list of users
+    res.status(200).json(USERS);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.delete("/user/:id", (req, res) => {
+  try {
+    // Extract the user ID from the request parameters
+    const userId = parseInt(req.params.id);
+
+    // Find the index of the user with the specified ID
+    const userIndex = USERS.users.findIndex((user) => user.id === userId);
+
+    // Check if the user with the specified ID exists
+    if (userIndex === -1) {
+      return res.status(404).send("User not found");
+    }
+
+    // Remove the user from the array
+    USERS.users.splice(userIndex, 1);
 
     // Respond with the updated list of users
     res.status(200).json(USERS);

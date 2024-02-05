@@ -6,19 +6,20 @@ import axios from "axios";
 const UpdateUsers: React.FC = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .put(`http://localhost:3000/user/` + id)
-      .then((res) => setData(res.data))
-
-      .catch((err) => console.log(err));
-  }, [id]);
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.put(`http://localhost:3000/user/` + id, data).then((res) => {
+      alert("data update successfully!");
+      navigate("/");
+    });
+  }
 
   return (
     <div className="body">
       <div className="form-section">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h2>Update User</h2>
 
           <div className="">
@@ -29,6 +30,7 @@ const UpdateUsers: React.FC = () => {
               placeholder="Enter ID"
               className="form-control"
               value={data.id}
+              onChange={(e) => setData({ ...data, id: e.target.value })}
             />
           </div>
           <div className="">
@@ -38,9 +40,10 @@ const UpdateUsers: React.FC = () => {
               placeholder="Enter Name"
               className="form-control"
               value={data.name}
+              onChange={(e) => setData({ ...data, name: e.target.value })}
             />
           </div>
-          <button className="submit-btn">Submit</button>
+          <button className="submit-btn">Update</button>
         </form>
       </div>
     </div>

@@ -1,25 +1,25 @@
-import React, { ChangeEvent, useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../Styling/CreateUsers.Styles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const CreateUsers: React.FC = (): React.ReactNode => {
-  const [inputData, setInputData] = useState({ id: "", name: "" });
   const navigate = useNavigate();
+  const [newUser, setNewUser] = useState({ id: "", name: "" });
 
-  function Submit(event: { preventDefault: () => void }) {
+  const Submit = (event: React.FormEvent) => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:3000/user", inputData)
+      .post("http://localhost:3000/user/:id", newUser)
       .then((res) => {
         toast.success("User Added Successfully", { position: "top-right" });
         navigate("/");
       })
       .catch((err) => console.log(err));
-  }
+  };
+
   return (
     <div className="body">
       <div className="form-section">
@@ -33,9 +33,7 @@ const CreateUsers: React.FC = (): React.ReactNode => {
               min="1"
               placeholder="Enter ID"
               className="form-control"
-              onChange={(e) =>
-                setInputData({ ...inputData, id: e.target.value })
-              }
+              onChange={(e) => setNewUser({ ...newUser, id: e.target.value })}
             />
           </div>
           <div className="">
@@ -44,12 +42,12 @@ const CreateUsers: React.FC = (): React.ReactNode => {
               type="text"
               placeholder="Enter Name"
               className="form-control"
-              onChange={(e) =>
-                setInputData({ ...inputData, name: e.target.value })
-              }
+              onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
             />
           </div>
-          <button className="submit-btn">Submit</button>
+          <button className="submit-btn" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>

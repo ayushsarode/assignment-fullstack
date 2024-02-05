@@ -4,13 +4,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
+interface User {
+  id: number;
+  name: string;
+}
+
 const Users: React.FC = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/users")
+      .get<User[]>("http://localhost:3000/users")
       .then((result) => setUsers(result.data))
       .catch((err) => console.log(err));
   }, []);
@@ -34,16 +39,16 @@ const Users: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((users) => (
-                <tr>
-                  <td>{users.id}</td>
-                  <td>{users.name}</td>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
                   <td className="buttons">
-                    <Link to={`/update/${users.id}`} className="edit-btn">
+                    <Link to={`/update/${user.id}`} className="edit-btn">
                       Update
                     </Link>
                     <button
-                      onClick={(e) => handleDelete(users.id)}
+                      onClick={() => handleDelete(user.id)}
                       className="dlte-btn"
                     >
                       Delete
@@ -58,11 +63,11 @@ const Users: React.FC = () => {
     </div>
   );
 
-  function handleDelete(id) {
+  function handleDelete(id: number) {
     const Conf = window.confirm("Do you want to delete");
     if (Conf) {
       axios
-        .delete("http://localhost:3000/user/" + id)
+        .delete(`http://localhost:3000/user/${id}`)
         .then((res) => {
           toast.error("User has been Deleted", { position: "top-right" });
           navigate("/");

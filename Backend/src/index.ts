@@ -13,8 +13,6 @@ app.get("/users", (req, res) => {
   res.json(USERS.users);
 });
 
-app.get;
-
 app.get("/user/:id", (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const user = USERS.users.find((u) => u.id === userId);
@@ -25,11 +23,15 @@ app.get("/user/:id", (req, res) => {
 
   res.json({ id: user.id, name: user.name });
 });
-0;
 
-app.post("/user", (req, res) => {
+app.post("/user/:id", (req, res) => {
   try {
-    const newUser = req.body;
+    const inputData = req.body;
+
+    const newUserId = Math.floor(Math.random() * 1000);
+
+    // Assign the new ID to the user data
+    const newUser = { ...inputData, id: newUserId };
 
     USERS.users.push(newUser);
 

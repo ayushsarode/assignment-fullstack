@@ -4,11 +4,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const CreateUsers: React.FC = (): React.ReactNode => {
+const CreateUsers: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
-  const [newUser, setNewUser] = useState({ id: "", name: "" });
+  const [newUser, setNewUser] = useState({ id: 0, name: "" });
 
-  const Submit = (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
     axios
@@ -17,13 +17,22 @@ const CreateUsers: React.FC = (): React.ReactNode => {
         toast.success("User Added Successfully", { position: "top-right" });
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error(err);
+        toast.error("Failed to add user", { position: "top-right" });
+      });
+  };
+
+  const handleIdChange = (e: { target: { value: number } }) => {
+    // Ensure that the value is converted to a number
+    const id = parseInt(e.target.value);
+    setNewUser({ ...newUser, id });
   };
 
   return (
     <div className="body">
       <div className="form-section">
-        <form onSubmit={Submit}>
+        <form onSubmit={handleSubmit}>
           <h2>Add User</h2>
 
           <div className="">
@@ -33,7 +42,8 @@ const CreateUsers: React.FC = (): React.ReactNode => {
               min="1"
               placeholder="Enter ID"
               className="form-control"
-              onChange={(e) => setNewUser({ ...newUser, id: e.target.value })}
+              value={newUser.id}
+              onChange={handleIdChange}
             />
           </div>
           <div className="">
@@ -42,6 +52,7 @@ const CreateUsers: React.FC = (): React.ReactNode => {
               type="text"
               placeholder="Enter Name"
               className="form-control"
+              value={newUser.name}
               onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
             />
           </div>

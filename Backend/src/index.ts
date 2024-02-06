@@ -24,12 +24,33 @@ app.get("/user/:id", (req, res) => {
   res.json({ id: user.id, name: user.name });
 });
 
+// app.post("/user", (req, res) => {
+//   try {
+//     const inputData = req.body;
+
+//     const newUserId = Math.floor(Math.random() * 1000);
+
+//     // Assign the new ID to the user data
+//     const newUser = { ...inputData, id: newUserId };
+
+//     USERS.users.push(newUser);
+
+//     res.status(200).json(USERS);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
 app.post("/user", (req, res) => {
   try {
-    const inputData = req.body;
+    // Extract the new user data from the request body
+    const newUser = req.body;
 
-    USERS.users.push(inputData);
+    // Add the new user to the existing users
+    USERS.users.push(newUser);
 
+    // Respond with the updated list of users
     res.status(200).json(USERS);
   } catch (error) {
     console.error(error);

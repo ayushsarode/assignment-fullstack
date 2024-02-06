@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 interface UserData {
-  id?: number;
+  id: number;
   name?: string;
 }
 
@@ -17,7 +17,7 @@ const UpdateUsers: React.FC = () => {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     axios
-      .put(`http://localhost:3000/user/${parseInt(id)}`, data)
+      .put(`http://localhost:3000/user/${id}`, data)
       .then((res) => {
         toast.success("User Updated Successfully", {
           position: "top-right",

@@ -2,42 +2,72 @@
 
 .main {
   margin: 0;
-  background: #000;
+  background: #fff;
   height: 100vh;
   font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
-  width: min(900px, 100% - 3rem);
+  width: min(1400px, 100% - 3rem);
   margin-inline: auto;
   padding-top: 2rem;
   color: white;
   font-family: "Poppins", sans-serif;
 }
 
-.wrapper h1 {
+nav {
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  border-radius: 8px;
   text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 2.5rem;
-  letter-spacing: 1px;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
   width: 100%;
-  border: 2px solid whi;
-  margin-top: 20px;
+  position: relative;
+  top: 3px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  width: 100%;
+  color: #000;
+  padding: 12px;
+  left: 2rem;
 }
 
-.wrapper span {
+nav span {
   color: #007bff;
-  font-weight: 700;
+  font-weight: 600;
 }
 
-.wrapper span:hover {
-  color: white;
-  transition: 0.2s;
+nav span:hover {
+  color: black;
+  transition: 0.4s;
+}
+
+nav {
+  position: relative;
+  top: 10px;
+  display: flex;
+  /* border: 2px solid #000; */
+  max-width: 98%;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  height: 80px;
 }
 
 table {
-  background: #323232;
+  background: #364f6b;
   color: white;
   border-collapse: collapse;
   width: 100%;
@@ -49,7 +79,6 @@ table {
 
 th,
 td {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
@@ -67,7 +96,7 @@ tr {
 }
 
 th {
-  background: hsl(0 0% 0% / 0.5);
+  background: hsl(0 0% 0% / 0.2);
 }
 
 tr:nth-of-type(2n) {
@@ -79,34 +108,41 @@ tr:nth-of-type(2n) {
   overflow-x: auto;
 }
 
+.buttons {
+  display: flex;
+  text-align: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
 .edit-btn {
   border: none;
-  padding: 8px 24px;
+  padding: 7px 24px;
   border-radius: 6px;
   margin-right: 0.5rem;
   font-size: 1.2rem;
-  background: #007bff;
+  background: #0e7aed;
   color: white;
   text-decoration: none;
 }
 
 .edit-btn:hover {
-  background: #0776edc9;
-  transition: 0.2s;
+  background: #1981f0c9;
+  transition: 0.3s;
 }
 
 .dlte-btn {
   color: white;
-  background: red;
+  background: #ff2e63;
   border: none;
-  padding: 8px 22px;
+  padding: 7px 22px;
   border-radius: 6px;
   font-size: 1.2rem;
 }
 
 .dlte-btn:hover {
-  background: rgba(228, 7, 7, 0.856);
-  transition: 0.2s;
+  background: #f11f53;
+  transition: 0.3s;
 }
 
 .Add-btn {

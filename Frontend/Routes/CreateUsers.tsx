@@ -12,7 +12,7 @@ const CreateUsers: React.FC = (): React.ReactNode => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:3000/user/:id", newUser)
+      .post(`http://localhost:3000/user`, newUser)
       .then((res) => {
         toast.success("User Added Successfully", { position: "top-right" });
         navigate("/");

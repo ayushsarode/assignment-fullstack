@@ -24,16 +24,11 @@ app.get("/user/:id", (req, res) => {
   res.json({ id: user.id, name: user.name });
 });
 
-app.post("/user/:id", (req, res) => {
+app.post("/user", (req, res) => {
   try {
     const inputData = req.body;
 
-    const newUserId = Math.floor(Math.random() * 1000);
-
-    // Assign the new ID to the user data
-    const newUser = { ...inputData, id: newUserId };
-
-    USERS.users.push(newUser);
+    USERS.users.push(inputData);
 
     res.status(200).json(USERS);
   } catch (error) {

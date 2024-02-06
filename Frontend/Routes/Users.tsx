@@ -22,10 +22,12 @@ const Users: React.FC = () => {
 
   return (
     <div className="main">
-      <div className="wrapper">
+      <nav>
         <h1>
           Profile <span>Peeps</span>
         </h1>
+      </nav>
+      <div className="wrapper">
         <Link to="/create" className="Add-btn">
           Create +
         </Link>

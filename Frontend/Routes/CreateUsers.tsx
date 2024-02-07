@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const CreateUsers: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
-  const [newUser, setNewUser] = useState({ id: 0, name: "" });
+  const [newUser, setNewUser] = useState({ id: "", name: "" });
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -31,36 +31,34 @@ const CreateUsers: React.FC = (): JSX.Element => {
 
   return (
     <div className="body">
-      <div className="form-section">
-        <form onSubmit={handleSubmit}>
-          <h2>Add User</h2>
+      <form onSubmit={handleSubmit}>
+        <h2>Add User</h2>
 
-          <div className="">
-            <label htmlFor="">ID</label>
-            <input
-              type="number"
-              min="1"
-              placeholder="Enter ID"
-              className="form-control"
-              value={newUser.id}
-              onChange={handleIdChange}
-            />
-          </div>
-          <div className="">
-            <label htmlFor="">Name</label>
-            <input
-              type="text"
-              placeholder="Enter Name"
-              className="form-control"
-              value={newUser.name}
-              onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-            />
-          </div>
-          <button className="submit-btn" type="submit">
-            Submit
-          </button>
-        </form>
-      </div>
+        <div className="">
+          <label htmlFor="">ID</label>
+          <input
+            type="number"
+            min="1"
+            placeholder="Enter ID"
+            className="form-control"
+            value={newUser.id}
+            onChange={handleIdChange}
+          />
+        </div>
+        <div className="">
+          <label htmlFor="">Name</label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            className="form-control"
+            value={newUser.name}
+            onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+          />
+        </div>
+        <button className="submit-btn" type="submit">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };

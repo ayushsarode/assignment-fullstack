@@ -17,12 +17,9 @@
 
 nav {
   display: flex;
-  align-items: center;
   max-width: 90%;
   border-radius: 8px;
-  text-align: center;
-  justify-content: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,14 +28,16 @@ h1 {
   position: relative;
   top: 3px;
   text-align: left;
+  align-items: start;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 2rem;
   letter-spacing: 0.5px;
-  width: 100%;
   color: #000;
   padding: 12px;
-  left: 2rem;
+  /* left: 2rem; */
+  justify-content: start;
+  margin-left: 14px;
 }
 
 nav span {
@@ -53,21 +52,30 @@ nav span:hover {
 
 nav {
   position: relative;
-  top: 10px;
+  top: 20px;
   display: flex;
   /* border: 2px solid #000; */
-  max-width: 98%;
+  max-width: 85%;
   border-radius: 12px;
   text-align: center;
   justify-content: center;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
   height: 80px;
 }
 
+img {
+  height: 75px;
+  text-align: left;
+  justify-content: start;
+  position: relative;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
 table {
-  background: #364f6b;
+  /* background: #364f6b; */
+  background: #1d2b53;
   color: white;
   border-collapse: collapse;
   width: 100%;
@@ -86,8 +94,6 @@ td {
 th,
 td {
   padding: 1rem 3rem 1rem 3rem;
-  /* border: 1px solid white; */
-  /* border-bottom: 2px solid whi; */
   text-align: center;
 }
 
@@ -146,24 +152,41 @@ tr:nth-of-type(2n) {
 }
 
 .Add-btn {
+  position: relative;
   text-decoration: none;
-  font-style: none;
-  font-size: 1.2rem;
-  margin-bottom: 0;
+  font-size: 1.3rem;
+  top: 3rem;
   color: white;
   background: hsl(134, 61%, 41%);
-  padding: 8px 12px;
-  position: relative;
-  top: 3rem;
+  padding: 12px;
   border-radius: 6px;
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  z-index: 1;
 }
 
 .Add-btn:hover {
   background: #289742;
 
   transition: 0.3s;
+}
+
+.credits {
+  position: fixed;
+  bottom: 10px;
+  right: 10px; /* This will position the element 10px from the right side */
+}
+
+.credits p {
+  font-weight: 500;
+}
+
+.credits a {
+  text-decoration: none;
+  list-style: none;
+  color: #000;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 850px) {
@@ -190,5 +213,50 @@ tr:nth-of-type(2n) {
   }
 
   .dlte-btn {
+  }
+}
+
+@media screen and (max-width: 850px) {
+  nav {
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    max-width: 85%;
+    height: 80px;
+    margin: 2rem;
+    margin-bottom: 0;
+  }
+
+  nav h1 {
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    font-size: 1.5rem;
+    top: 15px;
+    margin-left: 0;
+  }
+
+  img {
+    margin-left: 20px;
+  }
+
+  .Add-btn {
+    padding: 14px;
+    font-size: 1.3rem;
+    position: relative;
+    top: 6rem;
+    z-index: 1;
+  }
+  .table-container {
+    position: relative;
+    margin-top: 3rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 1, 5rem 0.5rem 1.5rem;
+    text-align: center;
   }
 }

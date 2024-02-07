@@ -3,6 +3,7 @@ import "../Styling/Users.Styles.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Avatar from "../assets/MaleAvatar.gif";
 
 interface User {
   id: number;
@@ -26,6 +27,7 @@ const Users: React.FC = () => {
         <h1>
           Profile <span>Peeps</span>
         </h1>
+        <img src={Avatar} alt="Avatar" />
       </nav>
       <div className="wrapper">
         <Link to="/create" className="Add-btn">
@@ -61,6 +63,14 @@ const Users: React.FC = () => {
             </tbody>
           </table>
         </div>
+      </div>
+      <div className="credits">
+        <p>
+          Made by{" "}
+          <a target="_blank" href="https://www.linkedin.com/in/ayushsarodey/">
+            @Ayush Sarode{" "}
+          </a>
+        </p>
       </div>
     </div>
   );
